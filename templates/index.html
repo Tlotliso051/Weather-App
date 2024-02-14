@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather-App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+        rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body class="bg-info text-white">
+    <div class="text-center">
+        <h1 class="mt-5">Weather APP</h1>
+        
+        <form action="/" method="post">
+            <input type="text" id="cityName" name="cityName" placeholder="city name" style="border-radius: 10px; border: grey; color: #999; font-style: italic; text-align: center;">
+            <input type="text" id="stateName" name="stateName" value="za" placeholder="Enter your state Name" style="border-radius: 10px; border: grey; color: #999; font-style: italic;text-align: center;">
+            <input type="text" id="countryName" name="countryName" value="South Africa" style="border-radius: 10px; border: grey; color: #999; font-style: italic; text-align: center">
+            <button style="border-radius: 10px; border: grey;">find</button>
+        </form>
+
+        <div class="mt-5">
+            {% if data %}
+            {{ data.main }}: {{ data.describtion }} <br>
+            <img src="https://openweathermap.org/img/wn/{{data.icon}}@2x.png" alt="icon">
+            {{ data.temperature }} 
+            {% endif %}
+            {% if message %}
+            <p>{{message}}</p>
+            {% endif %}
+        </div>
+        
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" 
+        crossorigin="anonymous">
+    </script>
+</body>
+</html>
